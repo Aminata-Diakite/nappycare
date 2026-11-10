@@ -1,0 +1,77 @@
+<!--contact us section start-->
+    <section id="contact" class="contact-us ptb-100 gray-light-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pb-3 message-box d-none">
+                    <div class="alert alert-danger"></div>
+                </div>
+                <div class="col-md-5">
+                    <div class="section-heading">
+                        <h2>Contactez-nous</h2>
+                        <p>Une question ou une demande de rendez-vous ? Utilisez le formulaire ou passez nous voir au salon.</p>
+                    </div>
+                    <div class="footer-address">
+                        <h6><strong>Le salon</strong></h6>
+                        <p>{{ salon.adresse }}, {{ salon.pays }}</p>
+                        <ul>
+                            <li><span>Téléphone : <a [href]="telHref">{{ salon.telephone }}</a></span></li>
+                            <li><span>Email : <a [href]="'mailto:' + salon.email">{{ salon.email }}</a></span></li>
+                            <li><span>Horaires : {{ salon.horaires }}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <form id="formContact" class="contact-us-form" (submit)="envoyer($event, fNom.value, fEmail.value, fTel.value, fPrestation.value, fMessage.value)">
+                        <h5>Écrivez-nous</h5>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group mb-3">
+                                    <input type="text" class="form-control" name="name" id="name" #fNom placeholder="Votre nom"
+                                           required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group mb-3">
+                                    <input type="email" class="form-control" name="email" id="email-contact" #fEmail placeholder="Votre email"
+                                           required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group mb-3">
+                                    <input type="text" name="phone" value="" class="form-control" id="phone" #fTel
+                                           placeholder="Votre téléphone">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group mb-3">
+                                    <input type="text" name="company" value="" size="40" class="form-control"
+                                           id="company" #fPrestation placeholder="Prestation souhaitée">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <textarea name="message" id="message" #fMessage class="form-control h-100" rows="7" cols="25"
+                                              placeholder="Votre message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mt-3">
+                                <button type="submit" class="btn solid-btn" id="btnContactUs">
+                                    Envoyer le message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    @if (envoye()) {
+                    <p class="form-message text-success mt-3">Merci ! Votre message s'ouvre dans WhatsApp, il ne reste qu'à l'envoyer.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact us section end-->

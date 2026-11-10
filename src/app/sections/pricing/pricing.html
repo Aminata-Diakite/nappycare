@@ -1,0 +1,136 @@
+<!--overflow block start-->
+    <div class="overflow-hidden">
+        <!--our pricing packages section start-->
+        <section id="pricing" class="package-section background-shape-right ptb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="section-heading text-center mb-5">
+                            <h2>Des tarifs clairs pour <br>chaque prestation</h2>
+                            <p class="lead">
+                                Voici nos prestations les plus demandées. Le prix final peut varier selon la longueur et l'épaisseur des cheveux.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    @for (offre of offres; track offre.titre) {
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card text-center single-pricing-pack p-5" [class.popular-price]="offre.populaire">
+                            <h5 class="mb-2">{{ offre.titre }}</h5>
+                            <div class="pricing-img mt-3 mb-4">
+                                <img [src]="offre.image" alt="pricing img" class="img-fluid">
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="list-unstyled text-sm pricing-feature-list">
+                                    @for (prestation of offre.prestations; track prestation) {
+                                    <li>{{ prestation }}</li>
+                                    }
+                                </ul>
+                                <div class="py-4 border-0 pricing-header">
+                                    <div class="h1 text-center mb-0 color-secondary"><span class="price fw-semibold">{{ offre.prix }}</span> FCFA</div>
+                                </div>
+                                <a href="#contact" class="btn page-scroll" [class.solid-btn]="offre.populaire" [class.outline-btn]="!offre.populaire">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <div class="mt-5 text-center">
+                    <p class="mb-2">Une coiffure sur mesure ou une autre demande ? <a href="#contact" class="color-secondary">Contactez-nous</a></p>
+                </div>
+                <!--pricing faq start-->
+                <div class="row mt-5">
+                    <div class="col-lg-6">
+                        <div id="accordion-1" class="accordion accordion-faq">
+                            <!-- Accordion card 1 -->
+                            <div class="card accordion-item">
+                                <div class="card-header accordion-header py-4" id="heading-1-1" data-bs-toggle="collapse" role="button"
+                                     data-bs-target="#collapse-1-1" aria-expanded="false" aria-controls="collapse-1-1">
+                                    <h6 class="mb-0"><span class="ti-receipt me-3 color-secondary"></span> Faut-il prendre rendez-vous ?</h6>
+                                </div>
+                                <div id="collapse-1-1" class="collapse" aria-labelledby="heading-1-1"
+                                     data-bs-parent="#accordion-1">
+                                    <div class="card-body accordion-body">
+                                        <p>Nous vous conseillons de réserver à l'avance, surtout le week-end et avant les fêtes. Vous pouvez aussi passer au salon selon les créneaux libres.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accordion card 2 -->
+                            <div class="card accordion-item">
+                                <div class="card-header py-4 accordion-header" id="heading-1-2" data-bs-toggle="collapse" role="button"
+                                     data-bs-target="#collapse-1-2" aria-expanded="false" aria-controls="collapse-1-2">
+                                    <h6 class="mb-0"><span class="ti-gallery me-3 color-secondary"></span> Combien de temps dure une coiffure ?</h6>
+                                </div>
+                                <div id="collapse-1-2" class="collapse" aria-labelledby="heading-1-2"
+                                     data-bs-parent="#accordion-1">
+                                    <div class="card-body accordion-body">
+                                        <p>Une coupe prend environ une heure. Les tresses et les tissages peuvent durer plusieurs heures selon le modèle choisi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accordion card 3 -->
+                            <div class="card accordion-item">
+                                <div class="card-header py-4 accordion-header" id="heading-1-3" data-bs-toggle="collapse" role="button"
+                                     data-bs-target="#collapse-1-3" aria-expanded="false" aria-controls="collapse-1-3">
+                                    <h6 class="mb-0"><span class="ti-wallet me-3 color-secondary"></span> Comment se fait le paiement ?</h6>
+                                </div>
+                                <div id="collapse-1-3" class="collapse" aria-labelledby="heading-1-3"
+                                     data-bs-parent="#accordion-1">
+                                    <div class="card-body accordion-body">
+                                        <p>Le paiement se fait au salon, à la fin de la prestation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div id="accordion-2" class="accordion accordion-faq">
+                            <!-- Accordion card 1 -->
+                            <div class="card accordion-item">
+                                <div class="card-header py-4 accordion-header" id="heading-2-1" data-bs-toggle="collapse" role="button"
+                                     data-bs-target="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1">
+                                    <h6 class="mb-0"><span class="ti-receipt me-3 color-secondary"></span> Les prix sont-ils fixes ?</h6>
+                                </div>
+                                <div id="collapse-2-1" class="collapse" aria-labelledby="heading-2-1"
+                                     data-bs-parent="#accordion-2">
+                                    <div class="card-body accordion-body">
+                                        <p>Les prix affichés sont indicatifs. Le tarif final dépend de la longueur, de l'épaisseur des cheveux et du modèle choisi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accordion card 2 -->
+                            <div class="card accordion-item">
+                                <div class="card-header py-4 accordion-header" id="heading-2-2" data-bs-toggle="collapse" role="button"
+                                     data-bs-target="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2">
+                                    <h6 class="mb-0"><span class="ti-lock me-3 color-secondary"></span> Que dois-je apporter ?</h6>
+                                </div>
+                                <div id="collapse-2-2" class="collapse" aria-labelledby="heading-2-2"
+                                     data-bs-parent="#accordion-2">
+                                    <div class="card-body accordion-body">
+                                        <p>Venez de préférence avec les cheveux propres et démêlés, et n'hésitez pas à apporter une photo du modèle souhaité.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accordion card 3 -->
+                            <div class="card accordion-item">
+                                <div class="card-header py-4 accordion-header" id="heading-2-3" data-bs-toggle="collapse" role="button"
+                                     data-bs-target="#collapse-2-3" aria-expanded="false" aria-controls="collapse-2-3">
+                                    <h6 class="mb-0"><span class="ti-widget me-3 color-secondary"></span> Puis-je annuler mon rendez-vous ?</h6>
+                                </div>
+                                <div id="collapse-2-3" class="collapse" aria-labelledby="heading-2-3"
+                                     data-bs-parent="#accordion-2">
+                                    <div class="card-body accordion-body">
+                                        <p>Oui, prévenez-nous le plus tôt possible par téléphone ou WhatsApp pour libérer le créneau.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--pricing faq end-->
+            </div>
+        </section>
+        <!--our pricing packages section end-->
+    </div>
+    <!--overflow block end-->

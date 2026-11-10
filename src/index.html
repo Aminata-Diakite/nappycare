@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>NappyCare</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <app-root></app-root>
+
+  <!-- Scripts du modèle : chargés une fois que Angular a affiché la page -->
+  <script>
+    (function () {
+      var scripts = [
+        'js/jquery-3.6.1.min.js',
+        'js/bootstrap.bundle.min.js',
+        'js/jquery.magnific-popup.min.js',
+        'js/jquery.easing.min.js',
+        'js/wow.min.js',
+        'js/owl.carousel.min.js',
+        'js/jquery.countdown.min.js',
+        'js/validator.min.js',
+        'js/scripts.js'
+      ];
+      function loadNext(i) {
+        if (i >= scripts.length) { return; }
+        var el = document.createElement('script');
+        el.src = scripts[i];
+        el.onload = function () { loadNext(i + 1); };
+        el.onerror = function () { loadNext(i + 1); };
+        document.body.appendChild(el);
+      }
+      var wait = setInterval(function () {
+        if (document.querySelector('.hero-section')) {
+          clearInterval(wait);
+          loadNext(0);
+        }
+      }, 100);
+    })();
+  </script>
+</body>
+</html>
